@@ -1,8 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import { Jumbotron } from "./migration";
 
-export const Jumbotron = (props) => {
+const Jumbotron = (props) => {
   const bgStyle = props.style ?? { backgroundColor: "#e9ecef" };
   return (
     <div id={props.id} className={`py-3 ${props.className}`} style={bgStyle}>
@@ -30,7 +29,7 @@ const LandingPage = React.forwardRef(
           </h1>
           <div className="lead typist">{message}</div>
           <div className="p-5">
-            {icons.map((icon, index) => (
+            {/* {icons.map((icon, index) => (
               <a
                 key={`social-icon-${index}`}
                 target="_blank"
@@ -40,7 +39,7 @@ const LandingPage = React.forwardRef(
               >
                 <i className={`fab ${icon.image}  fa-3x socialicons`} />
               </a>
-            ))}
+            ))} */}
           </div>
           <a
             className="btn btn-outline-light btn-lg "
