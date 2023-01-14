@@ -10,8 +10,11 @@ const Jumbotron = (props) => {
   );
 };
 
+// Colors
+// Set 1: "#1e3b7e, #0977b8, #28bc98, #1ba248"
+// Set 2: "#2a4689, #009572, #6d3898, #3d329b, #618489"
 const content = {
-  gradientColors: "#2a4689, #009572, #6d3898, #3d329b, #618489",
+  gradientColors: "#1e3b7e, #0977b8, #28bc98, #1ba248",
   title: "Insert Survey Name",
   message: "Insert purpose",
 };
