@@ -1,5 +1,5 @@
 import LandingPage from "./views/LandingPage";
-import "./scss/custom.scss";
+import "common/scss/custom.scss";
 
 function App() {
   return (

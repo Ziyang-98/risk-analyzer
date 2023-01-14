@@ -2,7 +2,9 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 
 const Jumbotron = (props) => {
-  const bgStyle = props.style ?? { backgroundColor: "#e9ecef" };
+  const bgStyle = props.style ?? {
+    backgroundColor: "#e9ecef",
+  };
   return (
     <div id={props.id} className={`py-3 ${props.className}`} style={bgStyle}>
       <div className="container py-5">{props.children}</div>
@@ -27,6 +29,7 @@ const LandingPage = () => {
       style={{
         background: `linear-gradient(136deg,${content.gradientColors})`,
         backgroundSize: "1200% 1200%",
+        overflow: "hidden",
       }}
       className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
