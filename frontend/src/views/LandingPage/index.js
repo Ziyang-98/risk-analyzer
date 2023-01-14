@@ -10,49 +10,38 @@ const Jumbotron = (props) => {
   );
 };
 
-const LandingPage = React.forwardRef(
-  ({ gradient, title, message, icons }, ref) => {
-    return (
-      <Jumbotron
-        fluid
-        id="home"
-        style={{
-          background: `linear-gradient(136deg,${gradient})`,
-          backgroundSize: "1200% 1200%",
-        }}
-        className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
-      >
-        <div id="stars"></div>
-        <Container className="text-center">
-          <h1 ref={ref} className="display-1">
-            {title}
-          </h1>
-          <div className="lead typist">{message}</div>
-          <div className="p-5">
-            {/* {icons.map((icon, index) => (
-              <a
-                key={`social-icon-${index}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                href={icon.url}
-                aria-label={`My ${icon.image.split("-")[1]}`}
-              >
-                <i className={`fab ${icon.image}  fa-3x socialicons`} />
-              </a>
-            ))} */}
-          </div>
-          <a
-            className="btn btn-outline-light btn-lg "
-            href="#aboutme"
-            role="button"
-            aria-label="Learn more about me"
-          >
-            More about me
-          </a>
-        </Container>
-      </Jumbotron>
-    );
-  }
-);
+const content = {
+  gradientColors: "#2a4689, #009572, #6d3898, #3d329b, #618489",
+  title: "Insert Survey Name",
+  message: "Insert purpose",
+};
+
+const LandingPage = () => {
+  return (
+    <Jumbotron
+      fluid
+      id="home"
+      style={{
+        background: `linear-gradient(136deg,${content.gradientColors})`,
+        backgroundSize: "1200% 1200%",
+      }}
+      className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
+    >
+      <div id="stars"></div>
+      <Container className="text-center">
+        <h1 className="display-1">{content.title}</h1>
+        <div className="lead typist">{content.message}</div>
+        <div className="p-5"></div>
+        <div
+          className="btn btn-outline-light btn-lg "
+          role="button"
+          aria-label="Click to start survey"
+        >
+          Click to start
+        </div>
+      </Container>
+    </Jumbotron>
+  );
+};
 
 export default LandingPage;
