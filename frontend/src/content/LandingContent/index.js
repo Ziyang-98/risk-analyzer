@@ -10,7 +10,8 @@ const content = {
   message2: "The survey will take approximately 5-10 mins to complete.",
 };
 
-const LandingContent = () => {
+const LandingContent = ({ goNext }) => {
+  console.log(goNext);
   return (
     <Container className="text-center">
       <h2 className="display-3">{content.title}</h2>
@@ -21,6 +22,9 @@ const LandingContent = () => {
         className="btn btn-outline-light btn-lg "
         role="button"
         aria-label="Click to start survey"
+        onClick={() => {
+          goNext();
+        }}
       >
         Click to start
       </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import LandingContent from "content/LandingContent";
+import useStepper from "hooks/useStepper";
 
-const Jumbotron = (props) => {
+const ContentArea = (props) => {
   const bgStyle = props.style ?? {
     backgroundColor: "#e9ecef",
   };
@@ -17,8 +18,17 @@ const Jumbotron = (props) => {
 // Set 2: "#2a4689, #009572, #6d3898, #3d329b, #618489"
 const GRADIENT_COLORS = "#1e3b7e, #0977b8, #28bc98, #1ba248";
 const Layout = () => {
+  const {
+    step,
+    goNext,
+    // goBack
+  } = useStepper();
+  const contentPages = [
+    { src: <LandingContent goNext={goNext} /> },
+    { src: <LandingContent goNext={goNext} /> },
+  ];
   return (
-    <Jumbotron
+    <ContentArea
       fluid
       id="home"
       style={{
@@ -29,8 +39,8 @@ const Layout = () => {
       className="title bg-transparent bgstyle text-light min-vh-100 d-flex align-content-center align-items-center flex-wrap m-0"
     >
       {/* <div id="stars" /> */}
-      <LandingContent />
-    </Jumbotron>
+      {contentPages[step].src}
+    </ContentArea>
   );
 };
 
