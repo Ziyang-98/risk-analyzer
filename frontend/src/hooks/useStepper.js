@@ -10,7 +10,6 @@ const useStepper = () => {
   };
 
   const goNext = () => {
-    console.log("hi");
     setStep(step + 1);
   };
 

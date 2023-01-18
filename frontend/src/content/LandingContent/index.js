@@ -1,6 +1,5 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-
 // Alt title: Understanding Your Tolerance to Risk in Investment
 const content = {
   title: "Are you risky with your money?",
@@ -11,7 +10,6 @@ const content = {
 };
 
 const LandingContent = ({ goNext }) => {
-  console.log(goNext);
   return (
     <Container className="text-center">
       <h2 className="display-3">{content.title}</h2>
