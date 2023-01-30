@@ -21,10 +21,22 @@ connection.once('open', () => {
 })
 
 // Require and use the files for database
-const answersRouter = require('./routes/answers');
+const questionsRouter = require('./routes/questions/question');
+const q1Router = require('./routes/questions/question1');
+const q2Router = require('./routes/questions/question2');
+const q3Router = require('./routes/questions/question3');
+const q4Router = require('./routes/questions/question4');
+const q5Router = require('./routes/questions/question5');
+
 const usersRouter = require('./routes/users');
 
-app.use('/answers', answersRouter);
+app.use('/questions', questionsRouter);
+app.use('/question1', q1Router);
+app.use('/question2', q2Router);
+app.use('/question3', q3Router);
+app.use('/question4', q4Router);
+app.use('/question5', q5Router);
+
 app.use('/users', usersRouter);
 
 app.listen(port, () => {
