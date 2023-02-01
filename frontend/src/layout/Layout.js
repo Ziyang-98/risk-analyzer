@@ -1,6 +1,7 @@
 import React from "react";
-import LandingContent from "content/LandingContent";
 import Fade from "react-bootstrap/Fade";
+import LandingContent from "content/LandingContent";
+import Question1Content from "content/Question1Content";
 import "./index.scss";
 
 import useStepper from "hooks/useStepper";
@@ -22,14 +23,10 @@ const ContentArea = (props) => {
 // Set 2: "#2a4689, #009572, #6d3898, #3d329b, #618489"
 const GRADIENT_COLORS = "#1e3b7e, #0977b8, #28bc98, #1ba248";
 const SWITCH_CONTENT_DURATION = 500;
-const TRANSITION_DURATION = 1000;
+const TRANSITION_DURATION = 500;
 
 const Layout = () => {
-  const {
-    step,
-    goNext,
-    // goBack
-  } = useStepper();
+  const { step, goNext, goBack } = useStepper();
 
   const { open, onOpen, onClose } = useTransition();
 
@@ -40,9 +37,17 @@ const Layout = () => {
     setTimeout(onOpen, TRANSITION_DURATION);
   };
 
+  const onGoBack = () => {
+    onClose();
+    // Leaving time between transitions to change content
+    setTimeout(goBack, SWITCH_CONTENT_DURATION);
+    setTimeout(onOpen, TRANSITION_DURATION);
+  };
+
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },
-    { src: <h1>Fill in content</h1> },
+    { src: <Question1Content goBack={onGoBack} goNext={onGoNext} /> },
+    { src: <h1>Last Page</h1> },
   ];
   return (
     <ContentArea

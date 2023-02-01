@@ -1,0 +1,17 @@
+.question-container {
+    overflow-y: auto;
+    height: 100%;
+    width: 90%;
+}
+
+.question-container-back-button {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+}
+
+.question-container-next-button {
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+}
