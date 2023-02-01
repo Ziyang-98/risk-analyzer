@@ -22,27 +22,11 @@ const ContentArea = (props) => {
 // Set 1: "#1e3b7e, #0977b8, #28bc98, #1ba248"
 // Set 2: "#2a4689, #009572, #6d3898, #3d329b, #618489"
 const GRADIENT_COLORS = "#1e3b7e, #0977b8, #28bc98, #1ba248";
-const SWITCH_CONTENT_DURATION = 500;
-const TRANSITION_DURATION = 500;
 
 const Layout = () => {
   const { step, goNext, goBack } = useStepper();
 
-  const { open, onOpen, onClose } = useTransition();
-
-  const onGoNext = () => {
-    onClose();
-    // Leaving time between transitions to change content
-    setTimeout(goNext, SWITCH_CONTENT_DURATION);
-    setTimeout(onOpen, TRANSITION_DURATION);
-  };
-
-  const onGoBack = () => {
-    onClose();
-    // Leaving time between transitions to change content
-    setTimeout(goBack, SWITCH_CONTENT_DURATION);
-    setTimeout(onOpen, TRANSITION_DURATION);
-  };
+  const { open, onGoNext, onGoBack } = useTransition(goNext, goBack);
 
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },
