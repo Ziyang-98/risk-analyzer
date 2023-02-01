@@ -6,6 +6,7 @@ import "./index.scss";
 
 import useStepper from "hooks/useStepper";
 import useTransition from "hooks/useTransition";
+import useQuestion1 from "hooks/useQuestion1";
 
 const ContentArea = (props) => {
   const bgStyle = props.style ?? {
@@ -28,9 +29,19 @@ const Layout = () => {
 
   const { open, onGoNext, onGoBack } = useTransition(goNext, goBack);
 
+  const question1Hook = useQuestion1();
+
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },
-    { src: <Question1Content goBack={onGoBack} goNext={onGoNext} /> },
+    {
+      src: (
+        <Question1Content
+          goBack={onGoBack}
+          goNext={onGoNext}
+          hook={question1Hook}
+        />
+      ),
+    },
     { src: <h1>Last Page</h1> },
   ];
   return (
