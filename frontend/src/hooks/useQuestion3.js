@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useQuestion1 = () => {
+const useQuestion3 = () => {
   const [value1, setValue1] = useState(0);
   const [value2, setValue2] = useState(0);
   const [value3, setValue3] = useState(0);
@@ -8,7 +8,7 @@ const useQuestion1 = () => {
   const [value5, setValue5] = useState(0);
 
   const submitValues = () => {
-    console.log("Question 1 values: ", value1, value2, value3, value4, value5);
+    console.log("Question 3 values: ", value1, value2, value3, value4, value5);
   };
 
   return {
@@ -26,4 +26,4 @@ const useQuestion1 = () => {
   };
 };
 
-export default useQuestion1;
+export default useQuestion3;

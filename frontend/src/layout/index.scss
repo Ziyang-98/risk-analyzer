@@ -9,6 +9,7 @@
 
 .question-title {
     @include question-sentence;
+    padding-bottom: 10px;
 }
 
 .question-notes {
