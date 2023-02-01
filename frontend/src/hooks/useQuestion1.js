@@ -1,34 +1,27 @@
 import { useState } from "react";
 
 const useQuestion1 = () => {
-  const [firstValue, setFirstValue] = useState(0);
-  const [secondValue, setSecondValue] = useState(0);
-  const [thirdValue, setThirdValue] = useState(0);
-  const [fourthValue, setFourthValue] = useState(0);
-  const [fifthValue, setFifthValue] = useState(0);
+  const [value1, setValue1] = useState(0);
+  const [value2, setValue2] = useState(0);
+  const [value3, setValue3] = useState(0);
+  const [value4, setValue4] = useState(0);
+  const [value5, setValue5] = useState(0);
 
   const submitValues = () => {
-    console.log(
-      "Question 1 values",
-      firstValue,
-      secondValue,
-      thirdValue,
-      fourthValue,
-      fifthValue
-    );
+    console.log("Question 1 values: ", value1, value2, value3, value4, value5);
   };
 
   return {
-    firstValue,
-    setFirstValue,
-    secondValue,
-    setSecondValue,
-    thirdValue,
-    setThirdValue,
-    fourthValue,
-    setFourthValue,
-    fifthValue,
-    setFifthValue,
+    value1,
+    setValue1,
+    value2,
+    setValue2,
+    value3,
+    setValue3,
+    value4,
+    setValue4,
+    value5,
+    setValue5,
     submitValues,
   };
 };

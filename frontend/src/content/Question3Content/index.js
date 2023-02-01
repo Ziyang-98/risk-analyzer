@@ -21,25 +21,24 @@ const MIN_PRICE = 1;
 
 const Question3Content = ({ goBack, goNext, hook }) => {
   const {
-    firstValue,
-    setFirstValue,
-    secondValue,
-    setSecondValue,
-    thirdValue,
-    setThirdValue,
-    fourthValue,
-    setFourthValue,
-    fifthValue,
-    setFifthValue,
+    value1,
+    setValue1,
+    value2,
+    setValue2,
+    value3,
+    setValue3,
+    value4,
+    setValue4,
+    value5,
+    setValue5,
   } = hook;
 
   const values = [
-    { value: firstValue, setValue: setFirstValue },
-    { value: secondValue, setValue: setSecondValue },
-    { value: thirdValue, setValue: setThirdValue },
-
-    { value: fourthValue, setValue: setFourthValue },
-    { value: fifthValue, setValue: setFifthValue },
+    { value: value1, setValue: setValue1 },
+    { value: value2, setValue: setValue2 },
+    { value: value3, setValue: setValue3 },
+    { value: value4, setValue: setValue4 },
+    { value: value5, setValue: setValue5 },
   ];
 
   return (
