@@ -10,11 +10,13 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const age = Number(req.body.age);
     const gender = req.body.gender;
+    const ethnicity = req.body.ethnicity;
     const education = req.body.education;
     const marital = req.body.marital;
     const mental = req.body.mental;
+    const contact = req.body.contact;
 
-    const newUser = new User({age, gender, education, marital, mental});
+    const newUser = new User({age, gender, ethnicity, education, marital, mental, contact});
 
     newUser.save()
         .then(() => res.json('User added!'))
@@ -36,11 +38,13 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
     User.findById(req.params.id)
         .then(user => {
-            user.age = Number(req.body.age);
-            user.gender = req.body.gender;
-            user.education = req.body.education;
-            user.marital = req.body.marital;
-            user.mental = req.body.mental;
+            const age = Number(req.body.age);
+            const gender = req.body.gender;
+            const ethnicity = req.body.ethnicity;
+            const education = req.body.education;
+            const marital = req.body.marital;
+            const mental = req.body.mental;
+            const contact = req.body.contact;
 
             user.save()
                 .then(() => res.json('User updated!'))

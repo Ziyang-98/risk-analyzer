@@ -1,9 +1,9 @@
 const router = require('express').Router();
-let Answer = require('../models/answer.model');
+let Q2 = require('../../models/questions/question2.model');
 let Error = err => res.status(400).json('Error: ' + err);
 
 router.route('/').get((req, res) => {
-    Answer.find()
+    Q2.find()
         .then(answers => res.json(answers))
         .catch(Error);
 });
@@ -11,32 +11,32 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
     const value = Number(req.body.value);
 
-    const newAnswer = new Answer({value});
+    const newAnswer = new Q2({value});
 
     newAnswer.save()
-        .then(() => res.json('Answer added!'))
+        .then(() => res.json('Answer to question 2 added!'))
         .catch(Error);
 });
 
-router.route('/:id').get((req, res) => {
-    Answer.findById(req.params.id)
+router.route('/:qid').get((req, res) => {
+    Q2.findById(req.params.qid)
         .then(answer => res.json(answer))
         .catch(Error)
 });
 
-router.route('/:id').delete((req, res) => {
-    Answer.findByIdAndDelete(req.params.id)
-        .then(() => res.json('Answer deleted'))
+router.route('/:qid').delete((req, res) => {
+    Q2.findByIdAndDelete(req.params.qid)
+        .then(() => res.json('Answer to question 2 deleted!'))
         .catch(Error)
 });
 
-router.route('/update/:id').post((req, res) => {
-    Answer.findById(req.params.id)
+router.route('/update/:qid').post((req, res) => {
+    Q2.findById(req.params.qid)
         .then(answer => {
             answer.value = Number(req.body.value);
 
             answer.save()
-                .then(() => res.json('Answer updated!'))
+                .then(() => res.json('Answer to question 2 updated!'))
                 .catch(Error);
         })
         .catch(Error)
