@@ -2,11 +2,10 @@ import React from "react";
 import QuestionComponent from "component/QuestionComponent";
 import RangeSlider from "react-bootstrap-range-slider";
 
-import "./index.scss";
-
 const question = {
   title:
     "Given the following lottery ticket, what is the minimum price you would sell it for? (Min $1, Max $200)",
+  notes: "Avoid using a calculator, try to give an amount based on your gut.",
   body: [
     "1. A ticket with a 50% chance of winning $100, 50% chance of winning $0.",
     "2. A ticket with a 20% chance of winning $70, 30% chance of winning $50, 50% chance of winning $20.",
@@ -45,8 +44,9 @@ const Question1Content = ({ goBack, goNext, hook }) => {
   return (
     <QuestionComponent goBack={goBack} goNext={goNext}>
       <div className="h2 question-title">{question.title}</div>
+      <div className="lead question-notes">{question.notes}</div>
       {question.body.map((qn, index) => (
-        <>
+        <div key={index}>
           <div className="lead typist question-body">{qn}</div>
           <RangeSlider
             min={MIN_PRICE}
@@ -55,7 +55,7 @@ const Question1Content = ({ goBack, goNext, hook }) => {
             onChange={(e) => values[index].setValue(e.target.value)}
             variant="light"
           />
-        </>
+        </div>
       ))}
     </QuestionComponent>
   );
