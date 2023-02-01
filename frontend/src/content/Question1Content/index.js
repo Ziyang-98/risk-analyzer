@@ -2,8 +2,6 @@ import React from "react";
 import QuestionComponent from "component/QuestionComponent";
 import RangeSlider from "react-bootstrap-range-slider";
 
-import "./index.scss";
-
 const question = {
   title:
     "Given the following lottery ticket, what is the minimum price you would sell it for? (Min $1, Max $200)",
@@ -48,7 +46,7 @@ const Question1Content = ({ goBack, goNext, hook }) => {
       <div className="h2 question-title">{question.title}</div>
       <div className="lead question-notes">{question.notes}</div>
       {question.body.map((qn, index) => (
-        <>
+        <div key={index}>
           <div className="lead typist question-body">{qn}</div>
           <RangeSlider
             min={MIN_PRICE}
@@ -57,7 +55,7 @@ const Question1Content = ({ goBack, goNext, hook }) => {
             onChange={(e) => values[index].setValue(e.target.value)}
             variant="light"
           />
-        </>
+        </div>
       ))}
     </QuestionComponent>
   );
