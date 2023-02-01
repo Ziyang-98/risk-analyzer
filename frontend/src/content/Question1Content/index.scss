@@ -6,6 +6,11 @@
     @include question-sentence;
 }
 
+.question-notes {
+    @include question-sentence;
+    color:#dedede;
+}
+
 .question-body {
     @include question-sentence;
     margin: 15px 0;
