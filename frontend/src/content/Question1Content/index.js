@@ -3,7 +3,7 @@ import QuestionComponent from "component/QuestionComponent";
 import RangeSlider from "react-bootstrap-range-slider";
 
 const question = {
-  title1:
+  title:
     "Given the following lottery ticket, what is the minimum price you would sell it for? (Min $1, Max $200)",
   notes: "Avoid using a calculator, try to give an amount based on your gut.",
   body: [
