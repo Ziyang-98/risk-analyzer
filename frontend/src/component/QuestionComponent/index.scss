@@ -1,17 +1,22 @@
 .question-container {
     overflow-y: auto;
-    height: 100%;
-    width: 90%;
+    height: 80vh
 }
 
-.question-container-back-button {
-    position: absolute;
-    left: 5%;
-    bottom: 10%;
+.button-holder {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
 }
 
-.question-container-next-button {
-    position: absolute;
-    right: 5%;
-    bottom: 10%;
-}
+// .question-container-back-button {
+//     position: absolute;
+//     left: 10%;
+//     bottom: 10%;
+// }
+
+// .question-container-next-button {
+//     position: absolute;
+//     right: 10%;
+//     bottom: 10%;
+// }

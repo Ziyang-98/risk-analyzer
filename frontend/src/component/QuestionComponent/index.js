@@ -6,22 +6,26 @@ import "./index.scss";
 const QuestionComponent = (props) => {
   const { children, goBack, goNext, isLastQuestion = false, onSubmit } = props;
   return (
-    <Container className="container">
+    <Container className="question-container">
       {children}
-      <Button
-        className="question-container-back-button"
-        variant="outline-light"
-        onClick={goBack}
-      >
-        Back
-      </Button>
-      <Button
-        className="question-container-next-button"
-        variant="outline-light"
-        onClick={isLastQuestion ? onSubmit : goNext}
-      >
-        {isLastQuestion ? "Submit" : "Next"}
-      </Button>
+      <div className="button-holder">
+        <Button
+          className="question-container-back-button"
+          variant="outline-light"
+          size="lg"
+          onClick={goBack}
+        >
+          Back
+        </Button>
+        <Button
+          className="question-container-next-button"
+          variant="outline-light"
+          size="lg"
+          onClick={isLastQuestion ? onSubmit : goNext}
+        >
+          {isLastQuestion ? "Submit" : "Next"}
+        </Button>
+      </div>
     </Container>
   );
 };
