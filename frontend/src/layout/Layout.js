@@ -2,13 +2,14 @@ import React from "react";
 import Fade from "react-bootstrap/Fade";
 import LandingContent from "content/LandingContent";
 import Question1Content from "content/Question1Content";
-import "./index.scss";
-
+import Question2Content from "content/Question2Content";
+import Question3Content from "content/Question3Content";
 import useStepper from "hooks/useStepper";
 import useTransition from "hooks/useTransition";
 import useQuestion1 from "hooks/useQuestion1";
-import Question2Content from "content/Question2Content";
 import useQuestion2 from "hooks/useQuestion2";
+import useQuestion3 from "hooks/useQuestion3";
+import "./index.scss";
 
 const ContentArea = (props) => {
   const bgStyle = props.style ?? {
@@ -33,6 +34,7 @@ const Layout = () => {
 
   const question1Hook = useQuestion1();
   const question2Hook = useQuestion2();
+  const question3Hook = useQuestion3();
 
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },
@@ -51,6 +53,15 @@ const Layout = () => {
           goBack={onGoBack}
           goNext={onGoNext}
           hook={question2Hook}
+        />
+      ),
+    },
+    {
+      src: (
+        <Question3Content
+          goBack={onGoBack}
+          goNext={onGoNext}
+          hook={question3Hook}
         />
       ),
     },
