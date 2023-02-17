@@ -12,6 +12,7 @@ import useQuestion2 from "hooks/useQuestion2";
 import useQuestion3 from "hooks/useQuestion3";
 import useQuestion4 from "hooks/useQuestion4";
 import "./index.scss";
+import useQuestion5 from "hooks/useQuestion5";
 
 const ContentArea = (props) => {
   const bgStyle = props.style ?? {
@@ -28,6 +29,8 @@ const ContentArea = (props) => {
 // Set 1: "#1e3b7e, #0977b8, #28bc98, #1ba248"
 // Set 2: "#2a4689, #009572, #6d3898, #3d329b, #618489"
 const GRADIENT_COLORS = "#1e3b7e, #0977b8, #28bc98, #1ba248";
+const NO_OF_BOMBS = 50;
+const NO_OF_BOXES = 1000;
 
 const Layout = () => {
   const { step, goNext, goBack } = useStepper();
@@ -38,6 +41,7 @@ const Layout = () => {
   const question2Hook = useQuestion2();
   const question3Hook = useQuestion3();
   const question4Hook = useQuestion4();
+  const question5Hook = useQuestion5(NO_OF_BOXES, NO_OF_BOMBS);
 
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },

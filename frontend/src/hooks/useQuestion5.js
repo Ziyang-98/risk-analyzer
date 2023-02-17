@@ -6,20 +6,19 @@ const useQuestion5 = (noOfBoxes, noOfBombs) => {
   // O represents incentive
   // 1 represents bomb
   const [boxes, setBoxes] = useState([]);
-  const [results, setResults] = useState(null);
+  //   const [results, setResults] = useState(null);
 
   useEffect(() => {
     const initBoxes = new Array(noOfBoxes).fill(0);
     const randomIndices = getRandomNumbers(noOfBoxes, noOfBombs);
     randomIndices.forEach((i) => {
-      initBoxes[i] = 0;
+      initBoxes[i] = 1;
     });
-    console.log(initBoxes);
     setBoxes(initBoxes);
-  }, []);
+  }, [noOfBoxes, noOfBombs]);
 
   const submitValues = () => {
-    console.log("Question 5 results: ", results);
+    console.log("Question 5 results: ", boxes);
   };
 
   return {
