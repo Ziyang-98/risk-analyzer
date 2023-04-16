@@ -5,8 +5,9 @@ import { useEffect, useState } from "react";
 const useQuestion5 = (noOfBoxes, noOfBombs) => {
   // O represents incentive
   // 1 represents bomb
+  const BOMB_VALUE = 1;
   const [boxes, setBoxes] = useState([]);
-  //   const [results, setResults] = useState(null);
+  const [boxNumber, setBoxNumber] = useState(1);
 
   useEffect(() => {
     const initBoxes = new Array(noOfBoxes).fill(0);
@@ -17,6 +18,18 @@ const useQuestion5 = (noOfBoxes, noOfBombs) => {
     setBoxes(initBoxes);
   }, [noOfBoxes, noOfBombs]);
 
+  const isBombTriggered = () => {
+    return boxes[boxNumber - 1] === BOMB_VALUE;
+  };
+
+  const isLastBox = () => {
+    return boxNumber === noOfBombs;
+  };
+
+  const incrementBoxNumber = () => {
+    setBoxNumber(boxNumber + 1);
+  };
+
   const submitValues = () => {
     console.log("Question 5 results: ", boxes);
   };
@@ -24,6 +37,9 @@ const useQuestion5 = (noOfBoxes, noOfBombs) => {
   return {
     boxes,
     submitValues,
+    isBombTriggered,
+    isLastBox,
+    incrementBoxNumber,
   };
 };
 
