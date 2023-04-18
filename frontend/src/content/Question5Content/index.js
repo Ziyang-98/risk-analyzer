@@ -31,8 +31,8 @@ const Question5Content = ({ goBack, goNext, hook }) => {
 
   return (
     <QuestionComponent goBack={goBack} goNext={goNext}>
-      <div className="lead typist question-title">{question.title}</div>
-      <div className="lead typist question-title">{question.task}</div>
+      <div className="h3 question-title">{question.title}</div>
+      <div className="h3 question-title">{question.task}</div>
       <div className="box-game-container">
         <div className="lead typist">Opening Box {boxNumber}...</div>
         <div>
