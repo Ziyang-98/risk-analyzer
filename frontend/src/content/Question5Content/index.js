@@ -1,6 +1,7 @@
 import React from "react";
 import QuestionComponent from "component/QuestionComponent";
 import ChestImg from "assets/img/chest.PNG";
+import ExplosionImg from "assets/img/explosion-resized.png";
 import Button from "react-bootstrap/Button";
 import "./index.scss";
 
@@ -14,8 +15,7 @@ const question = {
 };
 
 const Question5Content = ({ goBack, goNext, hook }) => {
-  const { boxes, boxNumber, amount, isBombTriggered, onOpenBox, addToAmount } =
-    hook;
+  const { boxNumber, amount, isBombTriggered, onOpenBox, disableOpen } = hook;
   return (
     <QuestionComponent goBack={goBack} goNext={goNext}>
       <div className="lead typist question-title">{question.title}</div>
@@ -23,11 +23,22 @@ const Question5Content = ({ goBack, goNext, hook }) => {
       <div className="box-game-container">
         <div className="lead typist">Box No. {boxNumber}</div>
         <div>
-          <img src={ChestImg} alt="box" />
+          <img src={isBombTriggered ? ExplosionImg : ChestImg} alt="box" />
         </div>
         <div className="lead typist">Accumulated amount: ${amount}</div>
-        <Button className="h5" variant="info" onClick={onOpenBox}>
-          Open box
+        <Button
+          className="h5"
+          variant={
+            isBombTriggered ? "danger" : disableOpen ? "secondary" : "info"
+          }
+          onClick={onOpenBox}
+          disabled={disableOpen}
+        >
+          {isBombTriggered
+            ? "Bombed!"
+            : disableOpen
+            ? "No more boxes"
+            : "Open box"}
         </Button>
       </div>
     </QuestionComponent>
