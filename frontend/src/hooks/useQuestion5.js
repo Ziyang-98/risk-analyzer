@@ -1,13 +1,14 @@
-import { getRandomNumbers } from "common/utils";
+import { generateRandom, getRandomNumbers } from "common/utils";
 import { useEffect, useState } from "react";
 
 // Bomb Game
-const useQuestion5 = (noOfBoxes, noOfBombs) => {
+const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
   // O represents incentive
   // 1 represents bomb
   const BOMB_VALUE = 1;
   const [boxes, setBoxes] = useState([]);
   const [boxNumber, setBoxNumber] = useState(1);
+  const [amount, setAmount] = useState(0);
 
   useEffect(() => {
     const initBoxes = new Array(noOfBoxes).fill(0);
@@ -22,12 +23,25 @@ const useQuestion5 = (noOfBoxes, noOfBombs) => {
     return boxes[boxNumber - 1] === BOMB_VALUE;
   };
 
-  const isLastBox = () => {
+  const hasNoMoreBoxes = () => {
     return boxNumber === noOfBombs;
   };
 
   const incrementBoxNumber = () => {
     setBoxNumber(boxNumber + 1);
+  };
+
+  const addToAmount = () => {
+    const amountToAdd = generateRandom(1, maxAmount);
+    setAmount(amount + amountToAdd);
+  };
+
+  const onOpenBox = () => {
+    if (isBombTriggered) {
+      // Handle when bomb is triggered
+    }
+    addToAmount();
+    incrementBoxNumber();
   };
 
   const submitValues = () => {
@@ -36,10 +50,12 @@ const useQuestion5 = (noOfBoxes, noOfBombs) => {
 
   return {
     boxes,
-    submitValues,
+    boxNumber,
+    amount,
     isBombTriggered,
-    isLastBox,
-    incrementBoxNumber,
+    onOpenBox,
+    addToAmount,
+    submitValues,
   };
 };
 

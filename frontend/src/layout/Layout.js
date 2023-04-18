@@ -5,14 +5,16 @@ import Question1Content from "content/Question1Content";
 import Question2Content from "content/Question2Content";
 import Question3Content from "content/Question3Content";
 import Question4Content from "content/Question4Content";
+import Question5Content from "content/Question5Content";
 import useStepper from "hooks/useStepper";
 import useTransition from "hooks/useTransition";
 import useQuestion1 from "hooks/useQuestion1";
 import useQuestion2 from "hooks/useQuestion2";
 import useQuestion3 from "hooks/useQuestion3";
 import useQuestion4 from "hooks/useQuestion4";
-import "./index.scss";
 import useQuestion5 from "hooks/useQuestion5";
+
+import "./index.scss";
 
 const ContentArea = (props) => {
   const bgStyle = props.style ?? {
@@ -31,6 +33,7 @@ const ContentArea = (props) => {
 const GRADIENT_COLORS = "#1e3b7e, #0977b8, #28bc98, #1ba248";
 const NO_OF_BOMBS = 50;
 const NO_OF_BOXES = 1000;
+const MAX_AMOUNT = 10;
 
 const Layout = () => {
   const { step, goNext, goBack } = useStepper();
@@ -41,7 +44,7 @@ const Layout = () => {
   const question2Hook = useQuestion2();
   const question3Hook = useQuestion3();
   const question4Hook = useQuestion4();
-  const question5Hook = useQuestion5(NO_OF_BOXES, NO_OF_BOMBS);
+  const question5Hook = useQuestion5(NO_OF_BOXES, NO_OF_BOMBS, MAX_AMOUNT);
 
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },
@@ -78,6 +81,15 @@ const Layout = () => {
           goBack={onGoBack}
           goNext={onGoNext}
           hook={question4Hook}
+        />
+      ),
+    },
+    {
+      src: (
+        <Question5Content
+          goBack={onGoBack}
+          goNext={onGoNext}
+          hook={question5Hook}
         />
       ),
     },
