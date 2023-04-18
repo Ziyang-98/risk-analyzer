@@ -3,11 +3,12 @@ import QuestionComponent from "component/QuestionComponent";
 import ChestImg from "assets/img/chest.PNG";
 import ExplosionImg from "assets/img/explosion-resized.png";
 import Button from "react-bootstrap/Button";
+import FadingOutText from "component/FadingText";
 import "./index.scss";
 
 const question = {
   title:
-    "There are 1000 boxes and 50 of these boxes contains a bombs. Each of the remaining box contains a value of $1~$10 inside with varying probability, $10 being most rare $1 being most common.",
+    "There are 1000 boxes and 50 of these boxes contains a bomb. Each of the remaining box contains a value of $1~$10 inside with varying probability, $10 being most rare and $1 being most common.",
   task:
     "You can choose to open as many boxes as you want. " +
     "Before opening a box, you can decide to stop if you want to and leave with the current accumulated amount, or continue opening boxes. " +
@@ -15,17 +16,39 @@ const question = {
 };
 
 const Question5Content = ({ goBack, goNext, hook }) => {
-  const { boxNumber, amount, isBombTriggered, onOpenBox, disableOpen } = hook;
+  const {
+    boxNumber,
+    amount,
+    isBombTriggered,
+    onOpenBox,
+    disableOpen,
+    amountAdded,
+    isDisplayMessage,
+  } = hook;
+
+  const displayText = isBombTriggered ? `-$${amountAdded}` : `+$${amountAdded}`;
+  const displayTextType = isBombTriggered ? "error" : "success";
+
   return (
     <QuestionComponent goBack={goBack} goNext={goNext}>
       <div className="lead typist question-title">{question.title}</div>
       <div className="lead typist question-title">{question.task}</div>
       <div className="box-game-container">
-        <div className="lead typist">Box No. {boxNumber}</div>
+        <div className="lead typist">Opening Box {boxNumber}...</div>
         <div>
           <img src={isBombTriggered ? ExplosionImg : ChestImg} alt="box" />
         </div>
-        <div className="lead typist">Accumulated amount: ${amount}</div>
+        <div className="floating-text-container">
+          {isDisplayMessage && (
+            <FadingOutText
+              text={displayText}
+              key={Date.now()}
+              variant="h4"
+              type={displayTextType}
+            />
+          )}
+        </div>
+        <div className="lead typist">Accumulated Amount: ${amount}</div>
         <Button
           className="h5"
           variant={

@@ -10,6 +10,8 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
   const [boxNumber, setBoxNumber] = useState(1);
   const [amount, setAmount] = useState(0);
   const [isBombTriggered, setIsBombTriggered] = useState(false);
+  const [amountAdded, setAmountAdded] = useState(0);
+  const [isDisplayMessage, setIsDisplayMessage] = useState(false);
 
   useEffect(() => {
     const initBoxes = new Array(noOfBoxes).fill(0);
@@ -26,19 +28,26 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
 
   const addToAmount = () => {
     const amountToAdd = generateRandom(1, maxAmount);
+    setAmountAdded(amountToAdd);
     setAmount(amount + amountToAdd);
+  };
+
+  const handleDisplayMessage = () => {
+    setIsDisplayMessage(true);
+    // setTimeout(() => setIsDisplayMessage(false), 1000);
   };
 
   const onOpenBox = () => {
     const boxContent = boxes[boxNumber - 1];
     if (boxContent === BOMB_VALUE) {
       setIsBombTriggered(true);
+      setAmountAdded(amount);
       setAmount(0);
       return;
     }
-
     addToAmount();
     incrementBoxNumber();
+    handleDisplayMessage();
   };
 
   const submitValues = () => {
@@ -52,6 +61,8 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
     isBombTriggered,
     onOpenBox,
     disableOpen: boxNumber === noOfBoxes || isBombTriggered,
+    amountAdded,
+    isDisplayMessage,
     submitValues,
   };
 };
