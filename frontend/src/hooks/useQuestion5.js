@@ -34,7 +34,7 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
 
   const handleDisplayMessage = () => {
     setIsDisplayMessage(true);
-    // setTimeout(() => setIsDisplayMessage(false), 1000);
+    setTimeout(() => setIsDisplayMessage(false), 800);
   };
 
   const onOpenBox = () => {
