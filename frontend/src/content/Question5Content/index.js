@@ -8,7 +8,7 @@ import "./index.scss";
 
 const question = {
   title:
-    "There are 1000 boxes and 50 of these boxes contains a bomb. Each of the remaining box contains a value of $1~$10 inside with varying probability, $10 being most rare and $1 being most common.",
+    "There are 1000 boxes and 50 of these boxes contains a bomb. Each of the boxes contains a value of $1~$10 inside with varying probability, $10 being most rare and $1 being most common.",
   task:
     "You can choose to open as many boxes as you want. " +
     "Before opening a box, you can decide to stop if you want to and leave with the current accumulated amount, or continue opening boxes. " +
