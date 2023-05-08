@@ -16,8 +16,7 @@ const useQuestion1 = () => {
       p4: value4,
       p5: value5
     }
-    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question1/add/', q1)
-      .then(res => console.log(res.data));
+    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question1/add/', q1);
   };
 
   return {

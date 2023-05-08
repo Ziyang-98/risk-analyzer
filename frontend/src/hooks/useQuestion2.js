@@ -8,8 +8,7 @@ const useQuestion2 = () => {
     const q2 = {
       value: value
     }
-    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question2/add/', q2)
-      .then(res => console.log(res.data));
+    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question2/add/', q2);
   };
 
   return {

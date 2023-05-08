@@ -57,8 +57,7 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
       totalValueReceived: amount,
       totalRounds: 1,
     }
-    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question5/add/', q5)
-      .then(res => console.log(res.data));
+    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question5/add/', q5);
   };
 
   return {
