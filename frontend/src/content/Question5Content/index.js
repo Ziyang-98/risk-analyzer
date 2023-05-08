@@ -15,7 +15,7 @@ const question = {
     "If the box opened contains a bomb, you won't be able to open anymore boxes and you will lose all accumulated amount.",
 };
 
-const Question5Content = ({ goBack, goNext, hook }) => {
+const Question5Content = ({ goBack, goNext, hook, submitAllValues }) => {
   const {
     boxNumber,
     amount,
@@ -30,7 +30,12 @@ const Question5Content = ({ goBack, goNext, hook }) => {
   const displayTextType = isBombTriggered ? "error" : "success";
 
   return (
-    <QuestionComponent goBack={goBack} goNext={goNext}>
+    <QuestionComponent
+      goBack={goBack}
+      goNext={goNext}
+      isLastQuestion
+      submitAllValues={submitAllValues}
+    >
       <div className="h3 question-title">{question.title}</div>
       <div className="h3 question-title">{question.task}</div>
       <div className="box-game-container">

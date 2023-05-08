@@ -46,6 +46,20 @@ const Layout = () => {
   const question4Hook = useQuestion4();
   const question5Hook = useQuestion5(NO_OF_BOXES, NO_OF_BOMBS, MAX_AMOUNT);
 
+  const { submitValues: submitValuesForQn1 } = question1Hook;
+  const { submitValues: submitValuesForQn2 } = question2Hook;
+  const { submitValues: submitValuesForQn3 } = question3Hook;
+  const { submitValues: submitValuesForQn4 } = question4Hook;
+  const { submitValues: submitValuesForQn5 } = question5Hook;
+
+  const submitAllValues = async () => {
+    submitValuesForQn1();
+    submitValuesForQn2();
+    submitValuesForQn3();
+    submitValuesForQn4();
+    submitValuesForQn5();
+  };
+
   const contentPages = [
     { src: <LandingContent goNext={onGoNext} /> },
     {
@@ -90,6 +104,7 @@ const Layout = () => {
           goBack={onGoBack}
           goNext={onGoNext}
           hook={question5Hook}
+          submitAllValues={submitAllValues}
         />
       ),
     },
