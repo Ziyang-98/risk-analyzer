@@ -10,7 +10,9 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
+const uri = process.env.ENV == "DEV" ?
+             process.env.DB_LOCAL_URI :
+             process.env.DB_CLOUD_URI;
 
 mongoose.set("strictQuery", false);
 mongoose.connect(uri, {useNewUrlParser: true});
