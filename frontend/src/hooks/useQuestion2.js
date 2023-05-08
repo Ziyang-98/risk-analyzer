@@ -5,7 +5,6 @@ const useQuestion2 = () => {
   const [value, setValue] = useState(0);
 
   const submitValues = () => {
-    console.log("Question 2 option picked: ", value);
     const q2 = {
       value: value
     }

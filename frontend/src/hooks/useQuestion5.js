@@ -52,7 +52,6 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
   };
 
   const submitValues = () => {
-    console.log("Question 5 results: ", boxes);
     const q5 = {
       totalOpenedBoxes: boxNumber - 1,
       totalValueReceived: amount,

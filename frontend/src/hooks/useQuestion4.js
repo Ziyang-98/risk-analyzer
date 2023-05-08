@@ -7,7 +7,6 @@ const useQuestion4 = () => {
   const [value3, setValue3] = useState(0);
 
   const submitValues = () => {
-    console.log("Question 4 values: ", value1, value2, value3);
     const q4 = {
       p1: value1,
       p2: value2,
