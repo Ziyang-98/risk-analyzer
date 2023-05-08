@@ -4,7 +4,19 @@ import Button from "react-bootstrap/Button";
 import "./index.scss";
 
 const QuestionComponent = (props) => {
-  const { children, goBack, goNext, isLastQuestion = false, onSubmit } = props;
+  const {
+    children,
+    goBack,
+    goNext,
+    isLastQuestion = false,
+    submitAllValues,
+  } = props;
+
+  const onSubmit = () => {
+    submitAllValues();
+    goNext();
+  };
+
   return (
     <Container className="question-container">
       {children}
