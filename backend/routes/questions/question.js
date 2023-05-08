@@ -1,6 +1,5 @@
 // This route performs redirecting to the correct question controllers
 const router = require('express').Router();
-let Error = err => res.status(400).json('Error: ' + err);
 let Qn = id => '/question' + id;
 
 router.route('/:id').get((req, res) => {

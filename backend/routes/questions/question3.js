@@ -1,11 +1,10 @@
 const router = require('express').Router();
 let Q3 = require('../../models/questions/question3.model');
-let Error = err => res.status(400).json('Error: ' + err);
 
 router.route('/').get((req, res) => {
     Q3.find()
         .then(answers => res.json(answers))
-        .catch(Error);
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/add').post((req, res) => {
@@ -19,19 +18,19 @@ router.route('/add').post((req, res) => {
 
     newAnswer.save()
         .then(() => res.json('Answer to question 3 added!'))
-        .catch(Error);
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:qid').get((req, res) => {
     Q3.findById(req.params.qid)
         .then(answer => res.json(answer))
-        .catch(Error)
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/:qid').delete((req, res) => {
     Q3.findByIdAndDelete(req.params.qid)
         .then(() => res.json('Answer to question 3 deleted!'))
-        .catch(Error)
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 router.route('/update/:qid').post((req, res) => {
@@ -45,9 +44,9 @@ router.route('/update/:qid').post((req, res) => {
 
             answer.save()
                 .then(() => res.json('Answer to question 3 updated!'))
-                .catch(Error);
+                .catch(err => res.status(400).json('Error: ' + err));
         })
-        .catch(Error)
+        .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;

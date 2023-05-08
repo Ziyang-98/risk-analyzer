@@ -1,5 +1,6 @@
 import { generateRandom, getRandomNumbers } from "common/utils";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 // Bomb Game
 const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
@@ -51,7 +52,12 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
   };
 
   const submitValues = () => {
-    console.log("Question 5 results: ", boxes);
+    const q5 = {
+      totalOpenedBoxes: boxNumber - 1,
+      totalValueReceived: amount,
+      totalRounds: 1,
+    }
+    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question5/add/', q5);
   };
 
   return {
