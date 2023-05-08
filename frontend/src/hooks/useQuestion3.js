@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 const useQuestion3 = () => {
   const [value1, setValue1] = useState(0);
@@ -9,6 +10,15 @@ const useQuestion3 = () => {
 
   const submitValues = () => {
     console.log("Question 3 values: ", value1, value2, value3, value4, value5);
+    const q3 = {
+      p1: value1,
+      p2: value2,
+      p3: value3,
+      p4: value4,
+      p5: value5
+    }
+    axios.post(process.env.REACT_APP_BACKEND_ROUTE + 'question3/add/', q3)
+      .then(res => console.log(res.data));
   };
 
   return {
