@@ -51,9 +51,7 @@ const useQuestion5 = (noOfBoxes, noOfBombs, maxAmount) => {
   };
 
   const submitValues = () => {
-    console.log("Boxes opened: ", boxNumber - 1);
-    console.log("Amount received: ", amount);
-    console.log("Is bomb triggered? ", isBombTriggered ? "Yes" : "No");
+    console.log("Question 5 results: ", boxes);
   };
 
   return {
