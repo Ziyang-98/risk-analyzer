@@ -30,7 +30,7 @@ const Question5Content = ({ goBack, goNext, hook }) => {
   const displayTextType = isBombTriggered ? "error" : "success";
 
   return (
-    <QuestionComponent goBack={goBack} goNext={goNext}>
+    <QuestionComponent goBack={goBack} goNext={goNext} isLastQuestion>
       <div className="h3 question-title">{question.title}</div>
       <div className="h3 question-title">{question.task}</div>
       <div className="box-game-container">
